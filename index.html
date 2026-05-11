@@ -1,0 +1,474 @@
+<!-- ========================= -->
+<!-- UNIT 5 EXAM - FAVORITE THINGS -->
+<!-- ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 5 Exam – Favorite Things</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#1a73e8;
+  --blue-dark:#1558b0;
+  --yellow:#f9a825;
+  --green:#43a047;
+  --red:#e53935;
+  --gray-bg:#f0f4ff;
+  --white:#fff;
+  --text:#1e2340;
+  --muted:#6b7280;
+  --border:#c7d2fe;
+  --correct:#d1fae5;
+  --wrong:#fee2e2;
+  --shadow:0 4px 24px rgba(26,115,232,.10);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--gray-bg);
+  color:var(--text);
+}
+
+header{
+  background:linear-gradient(135deg,var(--blue) 60%,var(--blue-dark) 100%);
+  color:#fff;
+  padding:2rem;
+  text-align:center;
+}
+
+header h1{
+  font-family:'Baloo 2',cursive;
+  font-size:2.3rem;
+}
+
+header p{
+  opacity:.9;
+  margin-top:.3rem;
+}
+
+.badge-unit{
+  display:inline-block;
+  background:var(--yellow);
+  color:#7c4a00;
+  font-weight:800;
+  padding:.2rem .9rem;
+  border-radius:20px;
+  margin-bottom:.5rem;
+}
+
+.student-form{
+  background:#fff;
+  max-width:780px;
+  margin:2rem auto;
+  padding:1.5rem;
+  border-radius:18px;
+  border:2px solid var(--border);
+  box-shadow:var(--shadow);
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+
+.student-form h2{
+  grid-column:1/-1;
+}
+
+.field label{
+  display:block;
+  font-weight:800;
+  margin-bottom:.3rem;
+  font-size:.85rem;
+}
+
+.field input{
+  width:100%;
+  padding:.7rem;
+  border-radius:10px;
+  border:2px solid var(--border);
+  font-family:'Nunito',sans-serif;
+}
+
+main{
+  max-width:780px;
+  margin:auto;
+  padding:1rem;
+}
+
+.section-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  border:2px solid var(--border);
+  margin-bottom:2rem;
+  box-shadow:var(--shadow);
+}
+
+.section-header{
+  background:linear-gradient(90deg,var(--blue),#4da6ff);
+  color:#fff;
+  padding:1rem 1.3rem;
+
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+.section-number{
+  width:45px;
+  height:45px;
+  background:rgba(255,255,255,.2);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:1.4rem;
+}
+
+.section-points{
+  margin-left:auto;
+  background:rgba(255,255,255,.2);
+  padding:.3rem .8rem;
+  border-radius:20px;
+  font-weight:800;
+}
+
+.section-body{
+  padding:1.5rem;
+}
+
+.question{
+  margin-bottom:1.5rem;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.question:last-child{
+  border-bottom:none;
+  margin-bottom:0;
+}
+
+.q-label{
+  color:var(--blue);
+  font-weight:900;
+  font-size:.8rem;
+  margin-bottom:.3rem;
+}
+
+.q-text{
+  font-weight:700;
+  margin-bottom:.8rem;
+  line-height:1.5;
+}
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+}
+
+.option-btn{
+  padding:.8rem 1rem;
+  border-radius:12px;
+  border:2px solid var(--border);
+  background:var(--gray-bg);
+  cursor:pointer;
+  text-align:left;
+  font-family:'Nunito',sans-serif;
+  font-weight:700;
+
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+}
+
+.option-btn:hover{
+  border-color:var(--blue);
+}
+
+.option-btn.selected{
+  background:#dbeafe;
+  border-color:var(--blue);
+}
+
+.option-btn.correct{
+  background:var(--correct);
+  border-color:var(--green);
+}
+
+.option-btn.wrong{
+  background:var(--wrong);
+  border-color:var(--red);
+}
+
+.opt-letter{
+  width:28px;
+  height:28px;
+  border-radius:8px;
+  background:#c7d2fe;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+
+.submit-area{
+  text-align:center;
+  margin:2rem 0;
+}
+
+#submit-btn{
+  background:linear-gradient(135deg,var(--blue),#4da6ff);
+  color:#fff;
+  border:none;
+  padding:1rem 3rem;
+  border-radius:18px;
+  font-size:1.2rem;
+  font-weight:900;
+  cursor:pointer;
+}
+
+#results-panel{
+  display:none;
+  background:#fff;
+  border-radius:18px;
+  border:2px solid var(--border);
+  padding:2rem;
+  margin-top:2rem;
+}
+
+.results-header{
+  text-align:center;
+}
+
+.score{
+  font-size:2rem;
+  font-weight:900;
+  margin-top:1rem;
+}
+
+@media(max-width:700px){
+  .student-form{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="badge-unit">Unit 5</div>
+  <h1>Favorite Things 🎒</h1>
+  <p>Metro Starter | Complete all sections and submit your exam</p>
+</header>
+
+<div class="student-form">
+  <h2>📋 Student Information</h2>
+
+  <div class="field">
+    <label>First Name</label>
+    <input type="text" id="st-first">
+  </div>
+
+  <div class="field">
+    <label>Last Name</label>
+    <input type="text" id="st-last">
+  </div>
+
+  <div class="field">
+    <label>Grade / Course</label>
+    <input type="text" id="st-grade">
+  </div>
+
+  <div class="field">
+    <label>Date</label>
+    <input type="date" id="st-date">
+  </div>
+</div>
+
+<main id="exam-main">
+
+<!-- EXAMPLE SECTION -->
+
+<div class="section-card">
+
+  <div class="section-header">
+    <div class="section-number">1</div>
+
+    <div>
+      <h3>Vocabulary – Possessions</h3>
+      <p>Choose the correct word.</p>
+    </div>
+
+    <div class="section-points">8 pts</div>
+  </div>
+
+  <div class="section-body">
+
+    <div class="question" data-q="1" data-correct="b">
+
+      <div class="q-label">Question 1</div>
+
+      <div class="q-text">
+        Tyler posts: <em>"These are my ___. I like music!"</em>
+      </div>
+
+      <div class="options">
+
+        <button class="option-btn" data-val="a">
+          <span class="opt-letter">A</span>
+          wallet
+        </button>
+
+        <button class="option-btn" data-val="b">
+          <span class="opt-letter">B</span>
+          headphones
+        </button>
+
+        <button class="option-btn" data-val="c">
+          <span class="opt-letter">C</span>
+          bracelet
+        </button>
+
+        <button class="option-btn" data-val="d">
+          <span class="opt-letter">D</span>
+          laptop
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="submit-area">
+  <button id="submit-btn" onclick="submitExam()">
+    ✏️ Submit My Exam
+  </button>
+</div>
+
+<div id="results-panel">
+  <div class="results-header">
+    <h2>📊 Results</h2>
+
+    <div class="score" id="score-display">
+      0/42
+    </div>
+
+    <div id="grade-text"></div>
+  </div>
+</div>
+
+</main>
+
+<script>
+
+const answers = {};
+const TOTAL = 42;
+
+document.querySelectorAll('.option-btn').forEach(btn=>{
+
+  btn.addEventListener('click',function(){
+
+    const q = this.closest('.question');
+    const qNum = q.dataset.q;
+
+    q.querySelectorAll('.option-btn')
+      .forEach(b=>b.classList.remove('selected'));
+
+    this.classList.add('selected');
+
+    answers[qNum] = this.dataset.val;
+  });
+
+});
+
+function submitExam(){
+
+  const firstName =
+    document.getElementById('st-first').value.trim();
+
+  const lastName =
+    document.getElementById('st-last').value.trim();
+
+  if(!firstName || !lastName){
+    alert('Please enter your name.');
+    return;
+  }
+
+  let total = 0;
+
+  document.querySelectorAll('.question').forEach(q=>{
+
+    const qNum = q.dataset.q;
+    const correct = q.dataset.correct;
+    const userAns = answers[qNum];
+
+    q.querySelectorAll('.option-btn').forEach(btn=>{
+
+      if(btn.dataset.val === correct){
+        btn.classList.add('correct');
+      }
+
+      else if(btn.dataset.val === userAns){
+        btn.classList.add('wrong');
+      }
+
+      btn.style.pointerEvents='none';
+
+    });
+
+    if(userAns === correct){
+      total++;
+    }
+
+  });
+
+  const pct = Math.round((total/TOTAL)*100);
+
+  const letter =
+    pct>=90 ? 'A' :
+    pct>=80 ? 'B' :
+    pct>=70 ? 'C' :
+    pct>=60 ? 'D' : 'F';
+
+  document.getElementById('results-panel').style.display='block';
+
+  document.getElementById('score-display').textContent =
+    total + '/' + TOTAL;
+
+  document.getElementById('grade-text').textContent =
+    'Grade: ' + letter + ' (' + pct + '%)';
+
+  window._examResults = {
+    firstName,
+    lastName,
+    grade:document.getElementById('st-grade').value.trim(),
+    score:total,
+    total:TOTAL,
+    percentage:pct,
+    letterGrade:letter
+  };
+
+}
+
+document.getElementById('st-date').valueAsDate = new Date();
+
+</script>
+
+</body>
+</html>
