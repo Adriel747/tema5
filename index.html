@@ -1,7 +1,3 @@
-<!-- ========================= -->
-<!-- UNIT 5 EXAM - FAVORITE THINGS -->
-<!-- ========================= -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +12,8 @@
   --blue:#1a73e8;
   --blue-dark:#1558b0;
   --yellow:#f9a825;
-  --green:#43a047;
   --red:#e53935;
+  --green:#43a047;
   --gray-bg:#f0f4ff;
   --white:#fff;
   --text:#1e2340;
@@ -52,27 +48,22 @@ header h1{
   font-size:2.3rem;
 }
 
-header p{
-  opacity:.9;
-  margin-top:.3rem;
-}
-
 .badge-unit{
   display:inline-block;
   background:var(--yellow);
   color:#7c4a00;
-  font-weight:800;
-  padding:.2rem .9rem;
+  padding:.3rem 1rem;
   border-radius:20px;
+  font-weight:800;
   margin-bottom:.5rem;
 }
 
 .student-form{
-  background:#fff;
   max-width:780px;
   margin:2rem auto;
-  padding:1.5rem;
+  background:#fff;
   border-radius:18px;
+  padding:1.5rem;
   border:2px solid var(--border);
   box-shadow:var(--shadow);
 
@@ -89,7 +80,6 @@ header p{
   display:block;
   font-weight:800;
   margin-bottom:.3rem;
-  font-size:.85rem;
 }
 
 .field input{
@@ -110,15 +100,15 @@ main{
   background:#fff;
   border-radius:18px;
   overflow:hidden;
-  border:2px solid var(--border);
   margin-bottom:2rem;
+  border:2px solid var(--border);
   box-shadow:var(--shadow);
 }
 
 .section-header{
   background:linear-gradient(90deg,var(--blue),#4da6ff);
   color:#fff;
-  padding:1rem 1.3rem;
+  padding:1rem 1.5rem;
 
   display:flex;
   align-items:center;
@@ -126,15 +116,17 @@ main{
 }
 
 .section-number{
-  width:45px;
-  height:45px;
-  background:rgba(255,255,255,.2);
+  width:44px;
+  height:44px;
   border-radius:10px;
+  background:rgba(255,255,255,.2);
+
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:900;
+
   font-size:1.4rem;
+  font-weight:900;
 }
 
 .section-points{
@@ -157,13 +149,12 @@ main{
 
 .question:last-child{
   border-bottom:none;
-  margin-bottom:0;
 }
 
 .q-label{
-  color:var(--blue);
-  font-weight:900;
   font-size:.8rem;
+  font-weight:900;
+  color:var(--blue);
   margin-bottom:.3rem;
 }
 
@@ -179,36 +170,40 @@ main{
   gap:.5rem;
 }
 
-.option-btn{
+.option-btn,
+.tf-btn{
   padding:.8rem 1rem;
   border-radius:12px;
   border:2px solid var(--border);
   background:var(--gray-bg);
   cursor:pointer;
-  text-align:left;
   font-family:'Nunito',sans-serif;
   font-weight:700;
 
   display:flex;
   align-items:center;
-  gap:.8rem;
+  gap:.7rem;
 }
 
-.option-btn:hover{
+.option-btn:hover,
+.tf-btn:hover{
   border-color:var(--blue);
 }
 
-.option-btn.selected{
+.option-btn.selected,
+.tf-btn.selected{
   background:#dbeafe;
   border-color:var(--blue);
 }
 
-.option-btn.correct{
+.option-btn.correct,
+.tf-btn.correct{
   background:var(--correct);
   border-color:var(--green);
 }
 
-.option-btn.wrong{
+.option-btn.wrong,
+.tf-btn.wrong{
   background:var(--wrong);
   border-color:var(--red);
 }
@@ -222,7 +217,13 @@ main{
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-weight:900;
+}
+
+.tf-group{
+  display:flex;
+  gap:1rem;
 }
 
 .submit-area{
@@ -260,10 +261,38 @@ main{
   margin-top:1rem;
 }
 
+.sheets-box{
+  margin-top:2rem;
+  padding:1rem;
+  background:#f0fdf4;
+  border:2px solid #86efac;
+  border-radius:14px;
+}
+
+.sheets-box input{
+  width:100%;
+  padding:.8rem;
+  border-radius:10px;
+  border:2px solid #86efac;
+  margin:.8rem 0;
+}
+
+#send-btn{
+  background:var(--green);
+  color:#fff;
+  border:none;
+  padding:.9rem 2rem;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:800;
+}
+
 @media(max-width:700px){
-  .student-form{
-    grid-template-columns:1fr;
-  }
+
+.student-form{
+  grid-template-columns:1fr;
+}
+
 }
 </style>
 </head>
@@ -277,6 +306,7 @@ main{
 </header>
 
 <div class="student-form">
+
   <h2>📋 Student Information</h2>
 
   <div class="field">
@@ -298,79 +328,131 @@ main{
     <label>Date</label>
     <input type="date" id="st-date">
   </div>
+
 </div>
 
-<main id="exam-main">
+<main>
 
-<!-- EXAMPLE SECTION -->
+<!-- SECTION 1 -->
 
 <div class="section-card">
 
-  <div class="section-header">
-    <div class="section-number">1</div>
+<div class="section-header">
+<div class="section-number">1</div>
 
-    <div>
-      <h3>Vocabulary – Possessions</h3>
-      <p>Choose the correct word.</p>
-    </div>
-
-    <div class="section-points">8 pts</div>
-  </div>
-
-  <div class="section-body">
-
-    <div class="question" data-q="1" data-correct="b">
-
-      <div class="q-label">Question 1</div>
-
-      <div class="q-text">
-        Tyler posts: <em>"These are my ___. I like music!"</em>
-      </div>
-
-      <div class="options">
-
-        <button class="option-btn" data-val="a">
-          <span class="opt-letter">A</span>
-          wallet
-        </button>
-
-        <button class="option-btn" data-val="b">
-          <span class="opt-letter">B</span>
-          headphones
-        </button>
-
-        <button class="option-btn" data-val="c">
-          <span class="opt-letter">C</span>
-          bracelet
-        </button>
-
-        <button class="option-btn" data-val="d">
-          <span class="opt-letter">D</span>
-          laptop
-        </button>
-
-      </div>
-    </div>
-
-  </div>
+<div>
+<h3>Vocabulary – Possessions</h3>
+<p>Choose the correct answer.</p>
 </div>
 
+<div class="section-points">8 pts</div>
+</div>
+
+<div class="section-body">
+
+<div class="question" data-q="1" data-correct="b">
+<div class="q-label">Question 1</div>
+<div class="q-text">Tyler posts: "These are my ___. I like music!"</div>
+
+<div class="options">
+
+<button class="option-btn" data-val="a">
+<span class="opt-letter">A</span>
+wallet
+</button>
+
+<button class="option-btn" data-val="b">
+<span class="opt-letter">B</span>
+headphones
+</button>
+
+<button class="option-btn" data-val="c">
+<span class="opt-letter">C</span>
+bracelet
+</button>
+
+<button class="option-btn" data-val="d">
+<span class="opt-letter">D</span>
+laptop
+</button>
+
+</div>
+</div>
+
+<div class="question" data-q="2" data-correct="a">
+<div class="q-label">Question 2</div>
+<div class="q-text">Phoebe posts: "This is my ___. I'm really good at BMX."</div>
+
+<div class="options">
+
+<button class="option-btn" data-val="a">
+<span class="opt-letter">A</span>
+bike
+</button>
+
+<button class="option-btn" data-val="b">
+<span class="opt-letter">B</span>
+skateboard
+</button>
+
+<button class="option-btn" data-val="c">
+<span class="opt-letter">C</span>
+watch
+</button>
+
+<button class="option-btn" data-val="d">
+<span class="opt-letter">D</span>
+sunglasses
+</button>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- CONTINÚA AGREGANDO TODAS LAS DEMÁS PREGUNTAS -->
+<!-- DESDE LA 3 HASTA LA 42 -->
+<!-- EXACTAMENTE IGUAL A TU HTML ORIGINAL -->
+
 <div class="submit-area">
-  <button id="submit-btn" onclick="submitExam()">
-    ✏️ Submit My Exam
-  </button>
+<button id="submit-btn" onclick="submitExam()">
+✏️ Submit My Exam
+</button>
 </div>
 
 <div id="results-panel">
-  <div class="results-header">
-    <h2>📊 Results</h2>
 
-    <div class="score" id="score-display">
-      0/42
-    </div>
+<div class="results-header">
 
-    <div id="grade-text"></div>
-  </div>
+<h2>📊 Results</h2>
+
+<div class="score" id="score-display">
+0/42
+</div>
+
+<div id="grade-text"></div>
+
+</div>
+
+<div class="sheets-box">
+
+<h3>Send to Google Sheets</h3>
+
+<input
+type="url"
+id="gas-url"
+placeholder="Paste your Apps Script URL here"
+>
+
+<button id="send-btn" onclick="sendToSheets()">
+Send Grade
+</button>
+
+<div id="sheet-status"></div>
+
+</div>
+
 </div>
 
 </main>
@@ -380,89 +462,147 @@ main{
 const answers = {};
 const TOTAL = 42;
 
-document.querySelectorAll('.option-btn').forEach(btn=>{
+document.querySelectorAll('.option-btn,.tf-btn').forEach(btn=>{
 
-  btn.addEventListener('click',function(){
+btn.addEventListener('click',function(){
 
-    const q = this.closest('.question');
-    const qNum = q.dataset.q;
+const q = this.closest('.question');
+const qNum = q.dataset.q;
 
-    q.querySelectorAll('.option-btn')
-      .forEach(b=>b.classList.remove('selected'));
+q.querySelectorAll('.option-btn,.tf-btn')
+.forEach(b=>b.classList.remove('selected'));
 
-    this.classList.add('selected');
+this.classList.add('selected');
 
-    answers[qNum] = this.dataset.val;
-  });
+answers[qNum] = this.dataset.val;
+
+});
 
 });
 
 function submitExam(){
 
-  const firstName =
-    document.getElementById('st-first').value.trim();
+const firstName =
+document.getElementById('st-first').value.trim();
 
-  const lastName =
-    document.getElementById('st-last').value.trim();
+const lastName =
+document.getElementById('st-last').value.trim();
 
-  if(!firstName || !lastName){
-    alert('Please enter your name.');
-    return;
-  }
+if(!firstName || !lastName){
 
-  let total = 0;
+alert('Please enter your name.');
+return;
 
-  document.querySelectorAll('.question').forEach(q=>{
+}
 
-    const qNum = q.dataset.q;
-    const correct = q.dataset.correct;
-    const userAns = answers[qNum];
+let total = 0;
 
-    q.querySelectorAll('.option-btn').forEach(btn=>{
+document.querySelectorAll('.question').forEach(q=>{
 
-      if(btn.dataset.val === correct){
-        btn.classList.add('correct');
-      }
+const qNum = q.dataset.q;
+const correct = q.dataset.correct;
+const userAns = answers[qNum];
 
-      else if(btn.dataset.val === userAns){
-        btn.classList.add('wrong');
-      }
+q.querySelectorAll('.option-btn,.tf-btn').forEach(btn=>{
 
-      btn.style.pointerEvents='none';
+if(btn.dataset.val === correct){
+btn.classList.add('correct');
+}
 
-    });
+else if(btn.dataset.val === userAns){
+btn.classList.add('wrong');
+}
 
-    if(userAns === correct){
-      total++;
-    }
+btn.style.pointerEvents='none';
 
-  });
+});
 
-  const pct = Math.round((total/TOTAL)*100);
+if(userAns === correct){
+total++;
+}
 
-  const letter =
-    pct>=90 ? 'A' :
-    pct>=80 ? 'B' :
-    pct>=70 ? 'C' :
-    pct>=60 ? 'D' : 'F';
+});
 
-  document.getElementById('results-panel').style.display='block';
+const pct = Math.round((total/TOTAL)*100);
 
-  document.getElementById('score-display').textContent =
-    total + '/' + TOTAL;
+const letter =
+pct>=90 ? 'A' :
+pct>=80 ? 'B' :
+pct>=70 ? 'C' :
+pct>=60 ? 'D' : 'F';
 
-  document.getElementById('grade-text').textContent =
-    'Grade: ' + letter + ' (' + pct + '%)';
+document.getElementById('results-panel').style.display='block';
 
-  window._examResults = {
-    firstName,
-    lastName,
-    grade:document.getElementById('st-grade').value.trim(),
-    score:total,
-    total:TOTAL,
-    percentage:pct,
-    letterGrade:letter
-  };
+document.getElementById('score-display').textContent =
+total + '/' + TOTAL;
+
+document.getElementById('grade-text').textContent =
+'Grade: ' + letter + ' (' + pct + '%)';
+
+window._examResults = {
+
+firstName,
+lastName,
+
+grade:
+document.getElementById('st-grade').value.trim(),
+
+score:total,
+total:TOTAL,
+percentage:pct,
+letterGrade:letter
+
+};
+
+}
+
+async function sendToSheets(){
+
+const url =
+document.getElementById('gas-url').value.trim();
+
+if(!url){
+alert('Paste the Apps Script URL.');
+return;
+}
+
+try{
+
+const res = await fetch(url,{
+
+method:'POST',
+
+headers:{
+'Content-Type':'text/plain'
+},
+
+body:JSON.stringify(window._examResults)
+
+});
+
+const data = await res.json();
+
+if(data.status === 'ok'){
+
+document.getElementById('sheet-status')
+.innerHTML = '✅ Grade sent successfully';
+
+}
+
+else{
+
+throw new Error(data.message);
+
+}
+
+}
+
+catch(err){
+
+document.getElementById('sheet-status')
+.innerHTML = '❌ ' + err.message;
+
+}
 
 }
 
